@@ -11,8 +11,15 @@ const config = {
     path: path.resolve(__dirname, './public'),
     filename: './[name]/bundle.js'
   },
+  module: {
+    rules: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: "babel-loader"
+    }]
+  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin(),
+    // new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       template: './index.html',
       hash: true,
