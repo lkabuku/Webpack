@@ -1,0 +1,1 @@
+This directory contains all the static files of the bundle

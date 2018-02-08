@@ -1,0 +1,7 @@
+.idea/
+node_modules/
+assets/tmp/**/**/*
+assets/tmp/**/*
+assets/build/
+assets/coverage/
+public/
