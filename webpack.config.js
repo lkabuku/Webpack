@@ -1,6 +1,7 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin'); //installed via npm
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
 const config = {
   context: path.resolve(__dirname, 'src'),
@@ -12,19 +13,31 @@ const config = {
     filename: './[name]/bundle.js'
   },
   module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: "babel-loader"
-    }]
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: ['babel-loader']
+      },
+      {
+        test: /\.styl/,
+        use: ExtractTextWebpackPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'postcss-loader', 'stylus-loader']
+        })
+      }
+    ]
   },
   plugins: [
     // new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
-      template: './index.html',
+      template: './layouts/index.html',
       hash: true,
-      cache: true
-    })
+      cache: true,
+    }),
+    new ExtractTextWebpackPlugin({
+      filename: '[name]/bundle.css'
+    }),
   ]
 }
 

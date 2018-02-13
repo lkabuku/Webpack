@@ -37,7 +37,7 @@
 
 * STYLE-LOADER
 
-> Adds CSS to the DOM by injecting a `<style>` tag
+> Adds CSS to the DOM by injecting a `<style>` tag, add the css rules to your document
 
 * CSS-LOADER
 
@@ -53,5 +53,9 @@
 
 > Stylus is an innovative stylesheet language that compiles down to CSS, inspired by SASS
 
+### EXTRACT-TEXT-WEBPACK-PLUGIN
 
+> It moves all the required *.css modules in entry chunks into a separate CSS file. So your styles are no longer inlined into the JS bundle, but in a separate CSS file.
+
+`npm install extract-text-webpack-plugin --save-dev`
 
