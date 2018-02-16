@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack'); //to access built-in plugins
 const path = require('path');
 const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const config = {
   context: path.resolve(__dirname, 'src'),
@@ -29,15 +30,18 @@ const config = {
     ]
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({
       template: './layouts/index.html',
       hash: true,
-      cache: true,
+      // cache: true,
     }),
     new ExtractTextWebpackPlugin({
       filename: '[name]/bundle.css'
     }),
+    new UglifyJsPlugin({
+      // cache: true,
+      // sourceMap: true
+    })
   ]
 }
 

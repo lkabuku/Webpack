@@ -59,3 +59,8 @@
 
 `npm install extract-text-webpack-plugin --save-dev`
 
+## MINIFY / COMPRESS
+
+> UglifyJS is a JavaScript parser, minifier, compressor and beautifier toolkit.
+
+`npm install uglifyjs-webpack-plugin --save-dev`
